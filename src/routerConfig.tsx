@@ -4,7 +4,7 @@ import Vehicles from "./pages/vehicles/Vehicles";
 import About from "./pages/about/About";
 import Contact from "./pages/contact/Contact";
 
-export const routes = [
+export const appRoutes = [
   {
     path: "/",
     element: <Home />,

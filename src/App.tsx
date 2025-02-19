@@ -1,12 +1,12 @@
-import MainLayout from "./layouts/MainLayout";
+import { BrowserRouter as Router } from "react-router-dom";
+import { AppRouter } from "./Router";
 
 function App() {
+  //TODO: agregar el suspense con un loader de carga
   return (
-    <>
-      <MainLayout>
-        <h1>SpaceX Mission Control</h1>
-      </MainLayout>
-    </>
+    <Router>
+      <AppRouter />
+    </Router>
   );
 }
 
