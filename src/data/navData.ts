@@ -5,14 +5,18 @@ const navItems = [
   },
   {
     id: 2,
-    name: "About",
+    name: "Launches",
   },
   {
     id: 3,
-    name: "Blog",
+    name: "Vehicles",
   },
   {
     id: 4,
+    name: "About",
+  },
+  {
+    id: 5,
     name: "Contact",
   },
 ];
