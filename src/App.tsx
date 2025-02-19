@@ -1,9 +1,11 @@
-import NavBar from "./components/NavBar";
+import MainLayout from "./layouts/MainLayout";
 
 function App() {
   return (
     <>
-      <NavBar />
+      <MainLayout>
+        <h1>SpaceX Mission Control</h1>
+      </MainLayout>
     </>
   );
 }
