@@ -3,6 +3,7 @@ import LaunchCard from "../../components/LaunchCard";
 import { useContext } from "react";
 import { ApiContext } from "../../context/apiContext";
 import { MagnifyingGlassCircleIcon } from "@heroicons/react/20/solid";
+import NextLaunch from "../../components/NextLaunch";
 
 const Launches = () => {
   const { upComingLaunches } = useContext(ApiContext);
@@ -13,7 +14,7 @@ const Launches = () => {
       <article className="w-full min-h-screen flex bg-bg-100">
         <div className="pt-80 px-10 flex-1">
           <div className="flex items-center gap-10 mb-10">
-            <h1 className="text-4xl font-bold font-orbitron text-white tracking-wider">
+            <h1 className="text-4xl font-bold font-orbitron text-accent-300 tracking-wider">
               Upcoming Launches
             </h1>
             <div className="relative">
@@ -43,11 +44,9 @@ const Launches = () => {
             ))}
           </div>
         </div>
-        <aside className="w-1/4">
-          <article>
-            <h1 className="text-4xl font-bold mb-4 text-white tracking-wider">
-              Next Launch
-            </h1>
+        <aside className="w-1/4 pt-80">
+          <article className="flex flex-col items-center justify-start w-full  h-full  font-orbitron">
+            <NextLaunch />
           </article>
         </aside>
       </article>

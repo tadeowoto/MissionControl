@@ -1,6 +1,6 @@
 import { createContext, ReactNode, useEffect, useState } from "react";
 
-interface Launch {
+type Launch = {
   links: {
     patch: {
       small: string | null;
@@ -24,10 +24,24 @@ interface Launch {
     flight: number;
   }[];
   id: string;
-}
+};
+
+type NextLaunch = {
+  id: string;
+  name: string;
+  date_utc: string;
+  flight_number: number;
+  upcoming: boolean;
+  rocket: string;
+  links: {
+    webcast: string;
+    youtube_id: string;
+  };
+};
 
 type ApiContextType = {
   upComingLaunches: Launch[];
+  nextLaunch: NextLaunch;
 };
 
 // 1 crear contexto
@@ -38,7 +52,6 @@ export function ApiProvider({ children }: { children: ReactNode }) {
   // Estado para los lanzamientos
   const [upComingLaunches, setUpComingLaunches] = useState<Launch[]>([]); // Usamos Launch[] como tipo
   const upComingUrl = "https://api.spacexdata.com/v5/launches/upcoming";
-
   // Efecto para obtener los lanzamientos
   useEffect(() => {
     fetch(upComingUrl)
@@ -46,9 +59,29 @@ export function ApiProvider({ children }: { children: ReactNode }) {
       .then((data) => setUpComingLaunches(data));
   }, []);
 
+  //fetch para traer el proximo lanzamiento
+  const [nextLaunch, setNextLaunch] = useState<NextLaunch>({
+    id: "",
+    name: "",
+    date_utc: "",
+    flight_number: 0,
+    upcoming: false,
+    rocket: "",
+    links: {
+      webcast: "",
+      youtube_id: "",
+    },
+  }); // inicializo esto asi, porque sino typescript me deja las pelotas como 2 camiones
+  const nextLaunchUrl = "https://api.spacexdata.com/v5/launches/next";
+  useEffect(() => {
+    fetch(nextLaunchUrl)
+      .then((response) => response.json())
+      .then((data) => setNextLaunch(data));
+  }, []);
+
   // 3 proveer en el return lo que queremos que se consuma en toda la app
   return (
-    <ApiContext.Provider value={{ upComingLaunches }}>
+    <ApiContext.Provider value={{ upComingLaunches, nextLaunch }}>
       {children}
     </ApiContext.Provider>
   );
