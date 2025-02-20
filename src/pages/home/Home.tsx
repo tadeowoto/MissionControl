@@ -16,7 +16,7 @@ const Home = () => {
               Discover all spacex launches here
             </h1>
             <Link to="/launches">
-              <button className="bg-transparent text-white px-16 py-2 rounded-lg border border-whitetransition-all cursor-pointer text-lg">
+              <button className="bg-transparent text-white px-16 py-2 rounded-lg border border-white transition-all cursor-pointer text-lg hover:scale-105 ">
                 Lets go!
               </button>
             </Link>
