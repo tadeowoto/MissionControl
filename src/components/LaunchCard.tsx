@@ -2,12 +2,14 @@ type CardProps = {
   img: string | null;
   name: string;
   date: string;
-  status: string;
+  status: boolean;
+  flightNumber: number;
 };
 
-const LaunchCard = ({ name, date, status, img }: CardProps) => {
+const LaunchCard = ({ name, date, status, img, flightNumber }: CardProps) => {
+  //TODO : add link to the launch, change status styles
   return (
-    <div className="flex h-[336px] w-[420px] flex-col bg-bg-300 rounded-xl font-orbitron">
+    <div className="flex h-[336px] w-[420px] flex-col bg-bg-300 rounded-xl hover:scale-102 hover:transition-all ">
       <div className="h-1/2">
         <img
           src={img ? img : "/home.jpg"}
@@ -16,10 +18,18 @@ const LaunchCard = ({ name, date, status, img }: CardProps) => {
         />
       </div>
       <div className="h-1/2 w-full p-4 box-border flex flex-col gap-3">
-        <h1 className="text-2xl font-bold text-white tracking-wider">{name}</h1>
-        <p className="text-sm text-gray-400">Date {date}</p>
-        <p className="text-sm text-gray-400">Agency: Spacex</p>
-        <p className="text-sm text-gray-400">Status {status}</p>
+        <h1 className="text-2xl font-bold text-white tracking-wider font-orbitron">
+          {name}
+        </h1>
+        <p className=" text-text-100 font-semibold text-md font-roboto">
+          Date: <span className="text-white">{date}</span>{" "}
+        </p>
+        <p className=" text-text-100 font-semibold text-md font-roboto">
+          Flight Number: <span className="text-white">{flightNumber}</span>
+        </p>
+        <p className=" text-text-100 font-semibold text-md font-roboto">
+          Status: <span className="text-white">{status}</span>{" "}
+        </p>
       </div>
     </div>
   );

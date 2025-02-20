@@ -2,6 +2,7 @@
 
 @theme {
   --font-orbitron: "Orbitron", sans-serif;
+  --font-roboto: "Roboto", sans-serif;
 
   --color-bg-50: oklch(0.12 0.02 270);
   --color-bg-100: oklch(0.15 0.025 270);

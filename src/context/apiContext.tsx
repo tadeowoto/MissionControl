@@ -1,14 +1,30 @@
 import { createContext, ReactNode, useEffect, useState } from "react";
 
-type Launch = {
-  name: string;
-  date_local: string;
-  launch_success: boolean | null;
+interface Launch {
   links: {
-    mission_patch: string | null;
+    patch: {
+      small: string | null;
+      large: string | null;
+    };
+    flickr: {
+      small: string[];
+      original: string[];
+    };
+    webcast: string;
+    youtube_id: string;
+    wikipedia: string | null;
   };
+  rocket: string;
+  name: string;
+  date_utc: string;
   flight_number: number;
-};
+  upcoming: boolean;
+  cores: {
+    core: string;
+    flight: number;
+  }[];
+  id: string;
+}
 
 type ApiContextType = {
   upComingLaunches: Launch[];
@@ -21,7 +37,7 @@ export const ApiContext = createContext<ApiContextType>({} as ApiContextType);
 export function ApiProvider({ children }: { children: ReactNode }) {
   // Estado para los lanzamientos
   const [upComingLaunches, setUpComingLaunches] = useState<Launch[]>([]); // Usamos Launch[] como tipo
-  const upComingUrl = "https://api.spacexdata.com/v4/launches/upcoming";
+  const upComingUrl = "https://api.spacexdata.com/v5/launches/upcoming";
 
   // Efecto para obtener los lanzamientos
   useEffect(() => {
