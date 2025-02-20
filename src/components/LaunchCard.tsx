@@ -1,3 +1,4 @@
+import { imagesData } from "../data/imagesData";
 type CardProps = {
   img: string | null;
   name: string;
@@ -8,11 +9,17 @@ type CardProps = {
 
 const LaunchCard = ({ name, date, status, img, flightNumber }: CardProps) => {
   //TODO : add link to the launch, change status styles
+  if (img === null) {
+    const random = Math.floor(Math.random() * imagesData.length);
+    console.log(random);
+    img = imagesData[random].src;
+    console.log(img);
+  }
   return (
     <div className="flex h-[336px] w-[420px] flex-col bg-bg-300 rounded-xl hover:scale-102 hover:transition-all ">
       <div className="h-1/2">
         <img
-          src={img ? img : "/home.jpg"}
+          src={img}
           alt="card image"
           className="w-full h-full object-cover rounded-t-xl"
         />

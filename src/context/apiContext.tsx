@@ -79,6 +79,8 @@ export function ApiProvider({ children }: { children: ReactNode }) {
       .then((data) => setNextLaunch(data));
   }, []);
 
+  // ahora tengo que hacer el fetch para la pagina de
+
   // 3 proveer en el return lo que queremos que se consuma en toda la app
   return (
     <ApiContext.Provider value={{ upComingLaunches, nextLaunch }}>
