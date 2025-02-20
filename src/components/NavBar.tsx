@@ -9,7 +9,7 @@ const NavBar = () => {
           <Link to={item.adress}>
             <li
               key={item.id}
-              className="decoration-0 cursor-pointer text-text-50"
+              className="decoration-0 cursor-pointer text-white tracking-wider"
             >
               {item.name}
             </li>
