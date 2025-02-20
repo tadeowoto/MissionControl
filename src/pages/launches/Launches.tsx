@@ -10,7 +10,17 @@ const Launches = () => {
   return (
     <MainLayout>
       <article className="w-full min-h-screen flex bg-bg-100">
-        <div className="pt-40 px-20 flex-1">
+        <div className="pt-80 px-10 flex-1">
+          <div className="flex items-center gap-10 mb-10">
+            <h1 className="text-4xl font-bold font-orbitron text-white tracking-wider">
+              Upcoming Launches
+            </h1>
+            <input
+              type="text"
+              className="bg-transparent text-white px-26 py-2 rounded-lg border border-white transition-all cursor-pointer text-lg font-orbitron hover:scale-105 "
+            />
+          </div>
+
           <div className="grid grid-cols-3 gap-8 auto-rows-auto">
             {upComingLaunches.map((launch) => (
               <LaunchCard
@@ -29,7 +39,13 @@ const Launches = () => {
             ))}
           </div>
         </div>
-        <aside className="w-1/4"></aside>
+        <aside className="w-1/4">
+          <article>
+            <h1 className="text-4xl font-bold mb-4 text-white tracking-wider">
+              Next Launch
+            </h1>
+          </article>
+        </aside>
       </article>
     </MainLayout>
   );
