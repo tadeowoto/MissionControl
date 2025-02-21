@@ -6,7 +6,6 @@ import { ApiContext } from "../../context/apiContext";
 
 const Vehicles = () => {
   const { rockets } = useContext(ApiContext);
-  console.log(rockets);
   return (
     <MainLayout>
       <article className="w-full min-h-screen flex justify-center items-center pb-10">

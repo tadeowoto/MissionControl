@@ -8,7 +8,7 @@ type VehicleCardProps = {
 
 const VehicleCard = ({ name, type, img }: VehicleCardProps) => {
   return (
-    <div className="w-[900px] h-[640px] bg-bg-50">
+    <div className="w-[900px] h-[640px] bg-bg-50 hover:scale-102 hover:transition-all">
       <div className="h-2/3 w-full">
         <img src={img} alt="" className="w-full h-full object-cover" />
       </div>
