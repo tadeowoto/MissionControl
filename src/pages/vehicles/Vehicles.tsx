@@ -1,5 +1,6 @@
 import MainLayout from "../../layouts/MainLayout";
 import CountUp from "react-countup";
+import VehicleCard from "../../components/VehicleCard";
 
 const Vehicles = () => {
   return (
@@ -32,6 +33,14 @@ const Vehicles = () => {
             <CountUp start={0} end={381} duration={4} className="text-8xl" />
             <p className="text-2xl">Total Reflights</p>
           </div>
+        </div>
+      </article>
+      <article className="w-full min-h-screen flex justify-center items-center pt-10 bg-bg-50">
+        <div className="w-full h-full grid grid-cols-2 auto-rows-auto gap-y-20 justify-items-center">
+          <VehicleCard />
+          <VehicleCard />
+          <VehicleCard />
+          <VehicleCard />
         </div>
       </article>
     </MainLayout>
