@@ -1,8 +1,12 @@
 import MainLayout from "../../layouts/MainLayout";
 import CountUp from "react-countup";
 import VehicleCard from "../../components/VehicleCard";
+import { useContext } from "react";
+import { ApiContext } from "../../context/apiContext";
 
 const Vehicles = () => {
+  const { rockets } = useContext(ApiContext);
+  console.log(rockets);
   return (
     <MainLayout>
       <article className="w-full min-h-screen flex justify-center items-center">
@@ -37,10 +41,13 @@ const Vehicles = () => {
       </article>
       <article className="w-full min-h-screen flex justify-center items-center pt-10 bg-bg-50">
         <div className="w-full h-full grid grid-cols-2 auto-rows-auto gap-y-20 justify-items-center">
-          <VehicleCard />
-          <VehicleCard />
-          <VehicleCard />
-          <VehicleCard />
+          {rockets.map((rocket) => (
+            <VehicleCard
+              name={rocket.name}
+              type={rocket.type}
+              img={rocket.flickr_images[1]}
+            />
+          ))}
         </div>
       </article>
     </MainLayout>

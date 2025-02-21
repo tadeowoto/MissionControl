@@ -39,9 +39,20 @@ type NextLaunch = {
   };
 };
 
+type Rocket = {
+  name: string;
+  type: string;
+  flickr_images: string[];
+  description: string;
+  stages: number;
+  boosters: number;
+  first_flight: string;
+};
+
 type ApiContextType = {
   upComingLaunches: Launch[];
   nextLaunch: NextLaunch;
+  rockets: Rocket[];
 };
 
 // 1 crear contexto
@@ -79,11 +90,19 @@ export function ApiProvider({ children }: { children: ReactNode }) {
       .then((data) => setNextLaunch(data));
   }, []);
 
-  // ahora tengo que hacer el fetch para la pagina de
+  const [rockets, setRockets] = useState<Rocket[]>([]);
+
+  const rocketsUrl = "https://api.spacexdata.com/v4/rockets";
+
+  useEffect(() => {
+    fetch(rocketsUrl)
+      .then((response) => response.json())
+      .then((data) => setRockets(data));
+  }, []);
 
   // 3 proveer en el return lo que queremos que se consuma en toda la app
   return (
-    <ApiContext.Provider value={{ upComingLaunches, nextLaunch }}>
+    <ApiContext.Provider value={{ upComingLaunches, nextLaunch, rockets }}>
       {children}
     </ApiContext.Provider>
   );
