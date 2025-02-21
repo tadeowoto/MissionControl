@@ -1,10 +1,10 @@
-import MainLayout from "../../layouts/MainLayout";
+import SecondaryLayout from "../../layouts/SecondaryLayout";
 import { Link } from "react-router-dom";
 import MainButton from "../../components/MainButton";
 
 const Home = () => {
   return (
-    <MainLayout>
+    <SecondaryLayout>
       <article>
         <div className="relative h-screen">
           <img
@@ -22,7 +22,7 @@ const Home = () => {
           </div>
         </div>
       </article>
-    </MainLayout>
+    </SecondaryLayout>
   );
 };
 

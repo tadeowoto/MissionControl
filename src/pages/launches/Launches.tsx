@@ -11,7 +11,7 @@ const Launches = () => {
   console.log(upComingLaunches);
   return (
     <MainLayout>
-      <article className="w-full min-h-screen flex bg-bg-100">
+      <article className="w-full min-h-screen flex bg-bg-100 pb-10">
         <div className="pt-80 px-10 flex-1">
           <div className="flex items-center gap-10 mb-10">
             <h1 className="text-4xl font-bold font-orbitron text-accent-300 tracking-wider">

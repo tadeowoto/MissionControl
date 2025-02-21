@@ -9,7 +9,7 @@ const Vehicles = () => {
   console.log(rockets);
   return (
     <MainLayout>
-      <article className="w-full min-h-screen flex justify-center items-center">
+      <article className="w-full min-h-screen flex justify-center items-center pb-10">
         <div className="w-full h-full absolute inset-0">
           <img
             className="object-cover w-full h-full"
