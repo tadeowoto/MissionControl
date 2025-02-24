@@ -105,6 +105,7 @@ export function ApiProvider({ children }: { children: ReactNode }) {
   //tengo un estado para guardar los cambios del input
   const [searchByTitle, setSearchByTitle] = useState("");
   // aca filtro los lanzamientos con filter y retorno las coincidencias con el .includes (comparando en minusculas)
+  // en el caso de que este vacio "", todos los filtrados del array de upComingLaunches son true, por lo tanto el filteredLaunches tiene todos los elementos de upComingLaunches
   const filteredLaunches = upComingLaunches.filter((launch) => {
     return launch.name.toLowerCase().includes(searchByTitle.toLowerCase());
   });

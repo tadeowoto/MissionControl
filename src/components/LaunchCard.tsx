@@ -11,9 +11,7 @@ const LaunchCard = ({ name, date, status, img, flightNumber }: CardProps) => {
   //TODO : add link to the launch, change status styles
   if (img === null) {
     const random = Math.floor(Math.random() * imagesData.length);
-    console.log(random);
     img = imagesData[random].src;
-    console.log(img);
   }
   return (
     <div className="flex h-[336px] max-w-full flex-col bg-bg-300 rounded-xl hover:scale-102 hover:transition-all md:h-[440px] md:max-w-[350px]">
