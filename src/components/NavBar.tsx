@@ -26,7 +26,7 @@ const NavBar = () => {
       >
         {navItems.map((item) => (
           <Link to={item.adress} key={item.id} onClick={() => setIsOpen(false)}>
-            <li className="text-white tracking-wider cursor-pointer py-2 md:py-0 hover:text-gray-300 transition-colors">
+            <li className="text-white tracking-wider cursor-pointer py-2 md:py-0 transition-colors hover:text-accent-300 hover:scale-105 transform duration-300">
               {item.name}
             </li>
           </Link>
