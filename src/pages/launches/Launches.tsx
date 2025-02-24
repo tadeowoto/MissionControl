@@ -13,7 +13,7 @@ const Launches = () => {
     <MainLayout>
       <article className="w-full min-h-screen flex flex-col bg-bg-100 pb-10 lg:flex-row">
         <div className="pt-80 px-10 flex-1">
-          <div className="flex items-center justify-center gap-10 mb-10 flex-col md:flex-row">
+          <div className="flex items-center justify-center gap-10 mb-10 flex-col lg:flex-row">
             <h1 className="text-3xl font-bold font-orbitron text-accent-300 tracking-wider md:font-2xl text-center">
               Upcoming Launches
             </h1>
@@ -26,7 +26,7 @@ const Launches = () => {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 gap-8 auto-rows-auto lg:grid-cols-3">
+          <div className="grid grid-cols-1 gap-8 auto-rows-auto lg:grid-cols-3 md:grid-cols-2 justify-center">
             {upComingLaunches.map((launch) => (
               <LaunchCard
                 name={launch.name}
@@ -44,7 +44,7 @@ const Launches = () => {
             ))}
           </div>
         </div>
-        <aside className="w-full flex items-center justify-center pt-10 md:w-1/4 md:pt-80">
+        <aside className="w-full flex items-center justify-center pt-10 lg:w-1/4 lg:pt-80">
           <article className="flex flex-col items-center justify-start w-full  h-full  font-orbitron">
             <NextLaunch />
           </article>

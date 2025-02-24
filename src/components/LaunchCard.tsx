@@ -28,7 +28,7 @@ const LaunchCard = ({ name, date, status, img, flightNumber }: CardProps) => {
         <h1 className="text-xl md:text-2xl font-bold text-white tracking-wider font-orbitron">
           {name}
         </h1>
-        <p className=" text-text-100 font-semibold text-md font-roboto hidden md:inline">
+        <p className=" text-text-100 font-semibold text-md font-roboto hidden lg:inline">
           Date: <span className="text-white ">{date}</span>{" "}
         </p>
         <p className=" text-text-100 font-semibold text-md font-roboto">
