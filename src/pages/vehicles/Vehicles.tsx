@@ -54,7 +54,7 @@ const Vehicles = () => {
         </div>
       </article>
       <article className="w-full min-h-screen flex justify-center items-center pt-10 bg-bg-50">
-        <div className="w-full h-full grid grid-cols-1 auto-rows-auto gap-y-20 justify-items-center lg:grid-cols-2">
+        <div className="w-full h-full grid grid-cols-1 auto-rows-auto gap-y-20 justify-items-center 2xl:grid-cols-2 xxl:grid-cols-2">
           {rockets.map((rocket) => (
             <VehicleCard
               name={rocket.name}
