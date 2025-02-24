@@ -1,14 +1,16 @@
 import MainLayout from "../../layouts/MainLayout";
 import LaunchCard from "../../components/LaunchCard";
-import { useContext } from "react";
+import React, { useContext } from "react";
 import { ApiContext } from "../../context/apiContext";
 import { MagnifyingGlassCircleIcon } from "@heroicons/react/20/solid";
 import NextLaunch from "../../components/NextLaunch";
 
 const Launches = () => {
-  const { upComingLaunches } = useContext(ApiContext);
+  const { filteredLaunches, setSearchByTitle } = useContext(ApiContext);
 
-  console.log(upComingLaunches);
+  const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchByTitle(e.target.value);
+  };
   return (
     <MainLayout>
       <article className="w-full min-h-screen flex flex-col bg-bg-100 pb-10 lg:flex-row">
@@ -22,12 +24,14 @@ const Launches = () => {
               <input
                 type="text"
                 className="bg-transparent text-white px-2 py-2 rounded-lg border border-white transition-all cursor-pointer text-lg font-orbitron hover:scale-105 pl-10"
+                placeholder="Search"
+                onChange={handleSearch}
               />
             </div>
           </div>
 
           <div className="grid grid-cols-1 gap-8 auto-rows-auto lg:grid-cols-3 md:grid-cols-2 justify-center">
-            {upComingLaunches.map((launch) => (
+            {filteredLaunches.map((launch) => (
               <LaunchCard
                 name={launch.name}
                 date={launch.date_utc}

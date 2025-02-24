@@ -53,6 +53,8 @@ type ApiContextType = {
   upComingLaunches: Launch[];
   nextLaunch: NextLaunch;
   rockets: Rocket[];
+  filteredLaunches: Launch[];
+  setSearchByTitle: (search: string) => void;
 };
 
 // 1 crear contexto
@@ -100,9 +102,24 @@ export function ApiProvider({ children }: { children: ReactNode }) {
       .then((data) => setRockets(data));
   }, []);
 
+  //tengo un estado para guardar los cambios del input
+  const [searchByTitle, setSearchByTitle] = useState("");
+  // aca filtro los lanzamientos con filter y retorno las coincidencias con el .includes (comparando en minusculas)
+  const filteredLaunches = upComingLaunches.filter((launch) => {
+    return launch.name.toLowerCase().includes(searchByTitle.toLowerCase());
+  });
+
   // 3 proveer en el return lo que queremos que se consuma en toda la app
   return (
-    <ApiContext.Provider value={{ upComingLaunches, nextLaunch, rockets }}>
+    <ApiContext.Provider
+      value={{
+        upComingLaunches,
+        nextLaunch,
+        rockets,
+        filteredLaunches,
+        setSearchByTitle,
+      }}
+    >
       {children}
     </ApiContext.Provider>
   );

@@ -16,7 +16,7 @@ const LaunchCard = ({ name, date, status, img, flightNumber }: CardProps) => {
     console.log(img);
   }
   return (
-    <div className="flex h-[336px] max-w-full flex-col bg-bg-300 rounded-xl hover:scale-102 hover:transition-all md:h-[400px] md:max-w-[300px]">
+    <div className="flex h-[336px] max-w-full flex-col bg-bg-300 rounded-xl hover:scale-102 hover:transition-all md:h-[440px] md:max-w-[350px]">
       <div className="h-1/2">
         <img
           src={img}
