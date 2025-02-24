@@ -13,12 +13,14 @@ const Home = () => {
             className="absolute inset-0 w-full h-full object-cover"
           />
           <div className="relative z-10 flex flex-col items-start justify-center h-full pt-80 pl-20 font-orbitron">
-            <h1 className="text-4xl font-bold mb-4 text-white tracking-wider">
+            <h1 className="relative bottom-90 right-10 text-3xl text-center font-bold mb-4 text-white tracking-wider">
               Discover all spacex launches here
             </h1>
-            <Link to="/launches">
-              <MainButton txt="Lets go!"></MainButton>
-            </Link>
+            <div className="relative top-35">
+              <Link to="/launches">
+                <MainButton txt="Lets go!"></MainButton>
+              </Link>
+            </div>
           </div>
         </div>
       </article>

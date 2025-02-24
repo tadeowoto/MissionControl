@@ -16,7 +16,7 @@ const LaunchCard = ({ name, date, status, img, flightNumber }: CardProps) => {
     console.log(img);
   }
   return (
-    <div className="flex h-[336px] w-[420px] flex-col bg-bg-300 rounded-xl hover:scale-102 hover:transition-all ">
+    <div className="flex h-[336px] max-w-full flex-col bg-bg-300 rounded-xl hover:scale-102 hover:transition-all md:h-[400px] md:max-w-[300px]">
       <div className="h-1/2">
         <img
           src={img}
@@ -25,11 +25,11 @@ const LaunchCard = ({ name, date, status, img, flightNumber }: CardProps) => {
         />
       </div>
       <div className="h-1/2 w-full p-4 box-border flex flex-col gap-3">
-        <h1 className="text-2xl font-bold text-white tracking-wider font-orbitron">
+        <h1 className="text-xl md:text-2xl font-bold text-white tracking-wider font-orbitron">
           {name}
         </h1>
-        <p className=" text-text-100 font-semibold text-md font-roboto">
-          Date: <span className="text-white">{date}</span>{" "}
+        <p className=" text-text-100 font-semibold text-md font-roboto hidden md:inline">
+          Date: <span className="text-white ">{date}</span>{" "}
         </p>
         <p className=" text-text-100 font-semibold text-md font-roboto">
           Flight Number: <span className="text-white">{flightNumber}</span>
